@@ -1,24 +1,7 @@
-import { muvelet,muveletLetrehoz } from "./functions.js"
+import { muveletLetrehoz } from "./functions.js"
+import { Gomb } from "./gomb.js";
 
-const inp1 = document.createElement("input")
-document.body.appendChild(inp1)
-const inp2 = document.createElement("input")
-document.body.appendChild(inp2)
 
-const div = document.createElement("div")
-document.body.appendChild(div)
-
-const button = document.createElement("button")
-div.appendChild(button)
-button.innerText = "gomb"
-
-button.addEventListener("click", function () {
-    const sz1 = Number(inp1.value)
-    const sz2 = Number(inp2.value)
-    const {result}=muvelet(sz1, sz2, muveletLetrehoz("+"))
-    div.innerText = result
-    
-})
 
 // function muvelet(a,b){
 //     return a+b
@@ -26,4 +9,21 @@ button.addEventListener("click", function () {
 
 const fv = muveletLetrehoz("+")
 console.log(fv(1, 2))
+
+const inpu1=document.createElement("input")
+inpu1.type="text"
+inpu1.id="egy"
+document.body.appendChild(inpu1)
+
+const inpu2=document.createElement("input")
+inpu2.type="text"
+inpu2.id="ketto"
+document.body.appendChild(inpu2)
+
+const div1=document.createElement("div")
+document.body.appendChild(div1)
+
+const osszeadas= new Gomb(inpu1,inpu2,"+",div1)
+const kivonas= new Gomb(inpu1,inpu2,"-",div1)
+const szorzas= new Gomb(inpu1,inpu2,"*",div1)
 

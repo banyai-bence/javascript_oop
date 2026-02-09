@@ -1,0 +1,143 @@
+{
+    "colspanHeaderArray": [
+        {
+            "name": "Szerző neve"
+        },
+        {
+            "name": "korszak"
+        },
+        {
+            "name": "Szerelmek",
+            "colspan": 2
+        }
+    ],
+    "colspanDataArr": [
+        {
+            "neve": "Balassi Bálint",
+            "kor": "reformáció",
+            "szerelme1": "Losonczy Anna",
+            "szerelme2": "Dobó Krisztina"
+        },
+        {
+            "neve": "Csokonai Vitéz Mihály",
+            "kor": "felvilágosodás",
+            "szerelme1": "Vajda Juliána"
+        },
+        {
+            "neve": "Petőfi Sándor",
+            "kor": "magyar romantika",
+            "szerelme1": "Mednyánszky Berta",
+            "szerelme2": "Szendrey Júlia"
+        },
+        {
+            "neve": "Ady Endre",
+            "kor": "20. század",
+            "szerelme1": "Léda",
+            "szerelme2": "Csinszka"
+        }
+    ],
+    "colspanFormFieldList": [
+        {
+            "label": "Költő neve",
+            "name": "neve",
+            "id": "elso",
+            "type": "text",
+            "required": true
+        },
+        {
+            "label": "korszak",
+            "name": "kor",
+            "id": "masodik",
+            "type": "text",
+            "required": true
+        },
+        {
+            "label": "Szerelem 1",
+            "name": "szerelme1",
+            "id": "harmadik",
+            "type": "text",
+            "required": true
+        },
+        {
+            "label": "Szerelem 2",
+            "name": "szerelme2",
+            "id": "negyedik",
+            "type": "text",
+            "required": false
+        }
+    ],
+    "rowspanHeaderArray": [
+        {
+            "name": "Nemzetiség"
+        },
+        {
+            "name": "Szerző"
+        },
+        {
+            "name": "Mű"
+        }
+    ],
+    "rowspanTableArray": [
+        {
+            "nemzet": "Orosz",
+            "szerzo": "Gogol",
+            "mu": "A köpönyeg",
+            "szerzo2": "Csehov",
+            "mu2": "A csinovnyik halála"
+        },
+        {
+            "nemzet": "Cseh",
+            "szerzo": "Franz Kafka",
+            "mu": "Az átváltozás"
+        },
+        {
+            "nemzet": "Magyar",
+            "szerzo": "Örkény István",
+            "mu": "Egyperces Novellák",
+            "szerzo2": "József Attila",
+            "mu2": "Klárisok"
+        },
+        {
+            "nemzet": "Svájc",
+            "szerzo": "Friedrich Dürrenmatt",
+            "mu": "A fizikusok"
+        }
+    ],
+    "rowspanFormFieldList": [
+        {
+            "label": "Nemzetiség",
+            "name": "nemzet",
+            "id": "elso",
+            "type": "text",
+            "required": true
+        },
+        {
+            "label": "Szerző1",
+            "name": "szerzo",
+            "id": "masodik",
+            "type": "text",
+            "required": true
+        },
+        {
+            "label": "Mű 1",
+            "name": "mu",
+            "id": "harmadik",
+            "type": "text",
+            "required": true
+        },
+        {
+            "label": "Szerző 2",
+            "name": "szerzo2",
+            "id": "negyedik",
+            "type": "text",
+            "required": false
+        },
+        {
+            "label": "Mű 2",
+            "name": "mu2",
+            "id": "otodik",
+            "type": "text",
+            "required": false
+        }
+    ]
+}

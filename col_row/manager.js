@@ -9,6 +9,7 @@
 class Manager {
     #dataArray
     #addCallback
+    /**@param {addCallback} value */
     set addCallback(value) {
         this.#addCallback = value
     }

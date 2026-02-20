@@ -11,7 +11,7 @@ class Table{
     #manager
     /**
      * 
-     * @param {import("./functions").HeaderArrayType} headerArry 
+     * @param {import("./functions").HeaderType[]} headerArray 
      * @param {Manager} manager 
      */
     constructor(headerArray, manager) {

@@ -7,7 +7,7 @@ class FormController {
      * @type {FormField[]}
      */
     #formFieldElemList;
-
+    #form;
     /**
      * @param {FormFieldType[]} formFieldList
      * @param {Manager} manager
@@ -17,6 +17,7 @@ class FormController {
 
         const form = document.createElement("form")
         document.body.appendChild(form)
+        this.#form=form
         this.#formFieldElemList = [];
 
         for (const formField of formFieldList) {

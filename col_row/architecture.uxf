@@ -1,0 +1,97 @@
+<diagram program="umletino" version="15.1"><zoom_level>5</zoom_level><help_text>Space for diagram note</help_text><element><id>UMLClass</id><coordinates><x>120</x><y>120</y><w>95</w><h>15</h></coordinates><panel_attributes>HtmlTableSectionElement</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>230</x><y>120</y><w>70</w><h>15</h></coordinates><panel_attributes>HtmlFormElement</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>315</x><y>120</y><w>60</w><h>15</h></coordinates><panel_attributes>HtmlInputElement</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>390</x><y>120</y><w>65</w><h>15</h></coordinates><panel_attributes>HtmlDivElement</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>75</x><y>100</y><w>465</w><h>50</h></coordinates><panel_attributes>HtmlTípusok
+bg=blue
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>75</x><y>150</y><w>465</w><h>145</h></coordinates><panel_attributes>ViewElement
+bg=green</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>75</x><y>495</y><w>465</w><h>150</h></coordinates><panel_attributes>Service
+bg=yellow</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>75</x><y>295</y><w>465</w><h>200</h></coordinates><panel_attributes>Saját Típusaink
+bg=red</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>100</x><y>165</y><w>140</w><h>60</h></coordinates><panel_attributes>Table
+--
+- tbody: HtmlTableSectionEleemnt
+- manager: Manager
+--
++ constructor(headerArray: HeaderType[ ]
+manager: Manager)
++ setAppendRow(callback: TableCallback): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>80</x><y>255</y><w>225</w><h>25</h></coordinates><panel_attributes>TableCallback
+--
++ (tbody: HtmlTableSectionElement, type: ColspanType | RowspanType): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>130</x><y>220</y><w>15</w><h>45</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;70;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>115</x><y>130</y><w>15</w><h>50</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>95</x><y>510</y><w>175</w><h>50</h></coordinates><panel_attributes>Manager
+--
+- dataArray: ColspanType[ ] | RowspanType[ ]
+- addCallback: addCallback
+--
++ addElement(colRowType: ColspanType | RowspanType): void
++ set addCallback(value: addCallback): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>245</x><y>585</y><w>130</w><h>25</h></coordinates><panel_attributes>addCallback
+--
++ (type: ColspanType | RowspanType): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>265</x><y>540</y><w>115</w><h>55</h></coordinates><panel_attributes>lt=&lt;-
+addElement hívja</panel_attributes><additional_attributes>10;20;210;20;210;90</additional_attributes></element><element><id>Relation</id><coordinates><x>30</x><y>185</y><w>225</w><h>415</h></coordinates><panel_attributes>lt=&lt;.
+A setAppendRow 
+állítja be
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</panel_attributes><additional_attributes>430;810;10;810;10;10;140;10</additional_attributes></element><element><id>Relation</id><coordinates><x>0</x><y>170</y><w>110</w><h>350</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>190;680;10;680;10;10;200;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>95</x><y>355</y><w>70</w><h>50</h></coordinates><panel_attributes>ColspanType
+--
++ neve: string
++ kor: string
++ szerelme1: string
++ szerelme2?: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>175</x><y>355</y><w>70</w><h>55</h></coordinates><panel_attributes>RowspanType
+--
++ nemzet: string
++ szerzo: string
++ mu: string
++ szerzo2?: string
++ mu2?: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>95</x><y>400</y><w>65</w><h>120</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..*</panel_attributes><additional_attributes>10;10;10;90;110;90;110;220</additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>405</y><w>60</w><h>115</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..*</panel_attributes><additional_attributes>80;10;80;80;10;80;10;210</additional_attributes></element><element><id>UMLClass</id><coordinates><x>265</x><y>375</y><w>65</w><h>30</h></coordinates><panel_attributes>HeaderType
+--
++ name: string
++ colspan?: number</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>235</x><y>200</y><w>95</w><h>185</h></coordinates><panel_attributes>lt=&lt;.
+m1=0..*</panel_attributes><additional_attributes>150;350;150;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>390</x><y>330</y><w>90</w><h>55</h></coordinates><panel_attributes>FormFieldType
+--
++ label: string
++ name: string
++ id: string
++ type: string
++ required: boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>430</x><y>155</y><w>105</w><h>80</h></coordinates><panel_attributes>FormController
+--
+- manager: Manager
+- formFieldElementList: FormField[ ]
+- HtmlFormElement
+--
++ constructor(formFieldList: 
+FormFieldType[ ],
+manager: Manager)
+- createElement(): 
+ColspanType | RowspanType</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>315</x><y>185</y><w>110</w><h>95</h></coordinates><panel_attributes>FormField
+--
+- input: HtmlInputElement
+- name: string
+- required: boolean
+- errordiv: HtmlDivElement
+--
+constructor(id: string, name: string, 
+labelcontent: string, required: boolean, 
+parent: HtmlFormElement)
++ get name(): string
++ get value(): string | undefined
++ validate(): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>270</x><y>130</y><w>175</w><h>35</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;30;330;30;330;50</additional_attributes></element><element><id>Relation</id><coordinates><x>415</x><y>230</y><w>80</w><h>40</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;60;140;60;140;10</additional_attributes></element><element><id>Relation</id><coordinates><x>150</x><y>230</y><w>355</w><h>135</h></coordinates><panel_attributes>lt=&lt;.
+                                                       előállítja a createElement</panel_attributes><additional_attributes>10;250;10;150;690;150;690;10</additional_attributes></element><element><id>Relation</id><coordinates><x>230</x><y>230</y><w>290</w><h>135</h></coordinates><panel_attributes>lt=&lt;.
+előállítja a createElement</panel_attributes><additional_attributes>10;250;10;180;560;180;560;10</additional_attributes></element><element><id>Relation</id><coordinates><x>265</x><y>140</y><w>310</w><h>385</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;750;600;750;600;10;340;10</additional_attributes></element><element><id>Relation</id><coordinates><x>355</x><y>130</y><w>55</w><h>65</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;80;90;80;90;110</additional_attributes></element><element><id>Relation</id><coordinates><x>470</x><y>230</y><w>110</w><h>115</h></coordinates><panel_attributes>lt=&lt;.
+létrehozza a 
+FormFieldType-ot</panel_attributes><additional_attributes>10;210;100;210;100;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>670</x><y>245</y><w>90</w><h>25</h></coordinates><panel_attributes>Folytonos nyíl: asszociáció
+--
+Szaggatott nyíl: függőség
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>

@@ -1,5 +1,5 @@
 /**
- * @import {FormFieldType,HeaderArrayType,ColspanType,RowspanType} from './functions.js' 
+ * @import {FormFieldType,HeaderType,ColspanType,RowspanType} from './functions.js' 
  *
  * @callback addCallback
  * @param {ColspanType | RowspanType} 

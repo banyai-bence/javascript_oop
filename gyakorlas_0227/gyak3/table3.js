@@ -1,5 +1,5 @@
-import { Manager } from "../fix/manager1";
-import { createTable, createTableCell } from "./function";
+import { Manager } from "./manager3.js";
+import { createTable, createTableCell } from "./function.js";
 
 /**
  * @callback Tablecallback

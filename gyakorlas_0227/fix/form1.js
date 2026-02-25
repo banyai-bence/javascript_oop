@@ -118,7 +118,8 @@ class FormController{
             const elem= this.#createElement();
             if(elem){
                 this.#manager.addElement(elem)
-                e.target.reset();
+                const target=e.target
+                target.reset();
             }
         })
     }

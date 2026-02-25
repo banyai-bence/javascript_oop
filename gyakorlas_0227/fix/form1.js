@@ -1,4 +1,5 @@
-import { Manager } from "./manager1";
+import { createForm, createInputField } from "./function.js";
+import { Manager } from "./manager1.js";
 
 class FormField{
     /**
@@ -32,29 +33,40 @@ class FormField{
      * @param {HTMLFormElement} parent 
      */
     constructor(id, name, labelContent, required, parent){
-        const div= document.createElement("div")
-        parent.appendChild(div)
+        // const div= document.createElement("div")
+        // parent.appendChild(div)
 
-        const label=document.createElement("label")
-        div.appendChild(label)
-        label.innerText=labelContent
-        label.htmlFor=id
+        // const label=document.createElement("label")
+        // div.appendChild(label)
+        // label.innerText=labelContent
+        // label.htmlFor=id
 
-        div.appendChild(document.createElement("br"))
+        // div.appendChild(document.createElement("br"))
 
-        const input=document.createElement("input")
-        div.appendChild(input)
-        input.id=id
-        input.name=name
-        this.#input=input
-        this.#name=name
+        // const input=document.createElement("input")
+        // div.appendChild(input)
+        // input.id=id
+        // input.name=name
+        // this.#input=input
+        // this.#name=name
+        
+        const {errorElement, input} = createInputField({
+            id,
+            name,
+            labelContent,
+            parent
+        })
+        this.#input = input;
+        this.#errorDiv= errorElement
+        this.#name = name;
+        this.#required = required;
 
-        const errorDiv=document.createElement("div")
-        div.appendChild(errorDiv)
-        errorDiv.classList("error")
+        // const errorDiv=document.createElement("div")
+        // div.appendChild(errorDiv)
+        // errorDiv.classList.add("error")
 
-        this.#errorDiv=errorDiv
-        this.#required=required
+        //this.#errorDiv=errorDiv
+        //this.#required=required
     }
     /**
      * @returns {boolean}
@@ -81,6 +93,9 @@ class FormController{
      * @type {FormField[]}
      */
     #formFieldElemList;
+    /**
+     * @type {HTMLFormElement}
+     */
     #form;
     /**
      * 
@@ -89,21 +104,16 @@ class FormController{
      */
     constructor(formFieldList, manager){
         this.#manager=manager
-
-        const form=document.createElement("form")
-        document.body.appendChild(form)
-        this.#form=form
         this.#formFieldElemList=[]
+        this.#form=createForm((form)=> {
+            document.body.appendChild(form)
 
-        for(const formField of formFieldList){
-            const formFieldElem= new FormField(formField.id,formField.name, formField.label, formField.required, form)
-            this.#formFieldElemList.push(formFieldElem)
-        }
-
-        const submitButton=document.createElement("button")
-        submitButton.innerText="Küldés"
-        form.appendChild(submitButton)
-        form.addEventListener("submit",(e)=>{
+            for(const formField of formFieldList){
+                const formFieldElem= new FormField(formField.id,formField.name, formField.label, formField.required, form)
+                this.#formFieldElemList.push(formFieldElem)
+            }
+        },
+        (e)=>{
             e.preventDefault()
             const elem= this.#createElement();
             if(elem){

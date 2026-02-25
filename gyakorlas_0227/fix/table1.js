@@ -1,4 +1,4 @@
-import { Manager } from "./manager1";
+import { Manager } from "./manager1.js";
 
 /**
  * @callback Tablecallback

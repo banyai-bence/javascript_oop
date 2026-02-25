@@ -1,23 +1,25 @@
 /**
  * @callback addCallback
- * @param {ColspanType | RowspanType} 
+ * @param {import("./function").ColspanType | import("./function").RowspanType}
  * @returns {void}
- */ 
+ */
 class Manager{
-    #dataArray
-    #addCallback
-    /**@param {import("../col_row/manager").addCallback} */
+    #dataArray;
+    #addCallback;
+    /**
+     * @param {import("../fix/manager1").addCallback}
+     */
     set addCallback(value){
         this.#addCallback=value
     }
     constructor(){
-        this.#dataArray= []
+        this.#dataArray=[]
     }
     addElement(colRowType){
         this.#dataArray.push(colRowType)
-        if(this.#addCallback) {
+        if(this.#addCallback){
             this.#addCallback(colRowType)
-        }
+        } 
     }
 }
 

@@ -1,10 +1,10 @@
-import { createTableCell , createTable} from "./function.js";
-import { Manager } from "./manager2.js";
+import { createTable, createTableCell } from "./function.js";
+import { Manager } from "./manager4.js";
 
-/**
+/** 
  * @callback Tablecallback
+ * @param {import("../gyak2/function").ColspanType | import("../gyak2/function").RowspanType} type
  * @param {HTMLTableSectionElement} tbody
- * @param {import("./function").ColspanType | import("./function").RowspanType} type
  * @returns {void}
  */
 class Table{
@@ -19,7 +19,7 @@ class Table{
      */
     constructor(headerArray, manager){
         this.#manager=manager
-        this.#tbody= createTable(document.body,(tr)=>{
+        this.#tbody=createTable(document.body, (tr)=>{
             for(const h of headerArray){
                 const th= createTableCell("th",h.name,tr)
                 if(h.colspan){

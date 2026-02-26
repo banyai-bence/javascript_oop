@@ -10,7 +10,7 @@ table.setAppendRow(tbodyRenderColspan)
 for(const d of data.colspanDataArr){
     manager.addElement(d)
 }
-const form= new FormController(data.colspanFormFieldList,manager)
+new FormController(data.colspanFormFieldList,manager)
 
 const man2= new Manager();
 const tab2= new Table(data.rowspanHeaderArray, man2)
@@ -19,4 +19,4 @@ for(const d of data.rowspanTableArray){
     man2.addElement(d)
 }
 
-const form2=new FormController(data.rowspanFormFieldList, man2)
+new FormController(data.rowspanFormFieldList, man2)

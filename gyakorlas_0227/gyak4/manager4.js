@@ -1,12 +1,11 @@
 /**
  * @callback addCallback
- * @param {import("./function").ColspanType | import("./function").RowspanType}
+ * @param {import("../gyak2/function").ColspanType | import("../gyak2/function").RowspanType}
  * @returns {void}
  */
 class Manager{
     #dataArray;
-    #addCallBack    
-    /**@param {addCallback} */
+    #addCallBack;
     set addCallback(value){
         return this.#addCallBack=value
     }
@@ -15,9 +14,11 @@ class Manager{
     }
     addElement(colRowType){
         this.#dataArray.push(colRowType)
-        if(this.#addCallBack)
+        if(this.#addCallBack){
             this.#addCallBack(colRowType)
+        }
     }
 }
 
 export {Manager}
+

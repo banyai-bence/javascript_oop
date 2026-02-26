@@ -1,8 +1,7 @@
-import { createForm } from "./function.js";
-import { createInputField } from "./function.js";
-import { Manager } from "./manager3.js";
+import { createForm, createInputField } from "./function.js";
+import { Manager } from "./manager4.js";
 
-class Formfield{
+class FormField{
     /**@type {HTMLInputElement} */
     #input;
     /**@type {string} */
@@ -17,56 +16,60 @@ class Formfield{
     get name(){
         return this.#name
     }
-    constructor(id,name,labelContent,required,parent){
+    /**
+     * 
+     * @param {string} id 
+     * @param {string} name 
+     * @param {string} labelContent 
+     * @param {boolean} required 
+     * @param {HTMLFormElement} parent 
+     */
+    constructor(id,name,labelContent,required, parent){
         const {errorElement, input} = createInputField({
             id,
             name,
             labelContent,
+            required,
             parent
         })
-        this.#input=input
-        this.#errorDiv=errorElement
         this.#name=name
+        this.#input=input
         this.#required=required
+        this.#errorDiv=errorElement
     }
     validate(){
-        let result= true
+        let result=true
         if(this.#required && !this.value){
-            result= false
+            result=false
             this.#errorDiv.innerText="Kötelező"
         }
         else{
             this.#errorDiv.innerText=""
         }
-        return result
+        return result  
     }
 }
 
 class FormController{
-    /**@type {Manager} */
-    #manager;
-    /**@type {FormField[]} */
     #formFieldElemList;
-    /**@type {HTMLFormElement} */
-    
+    #manager;
     /**
      * 
-     * @param {import("./function.js").FormFieldType[]} formFieldList 
+     * @param {import("./function").FormFieldType[]} formFieldList 
      * @param {Manager} manager 
      */
-    constructor(formFieldList, manager){
+    constructor(formFieldList,manager){
         this.#manager=manager
-        this.#formFieldElemList= []
+        this.#formFieldElemList=[]
         createForm((form)=>{
             document.body.appendChild(form)
-
-            for(const elem of formFieldList){
-                const formFieldElem= new Formfield(elem.id,elem.name,elem.label,elem.required,form)
-                this.#formFieldElemList.push(formFieldElem)
+            for(const f of formFieldList){
+                const formField= new FormField(f.id,f.name,f.label,f.required,form)
+                this.#formFieldElemList.push(formField)
             }
         },(e)=>{
-            e.preventDefault()
-            const a =this.#createElement()
+            e.preventDefault();
+            const a= this.#createElement()
             if(a){
                 this.#manager.addElement(a)
                 e.target.reset();
@@ -74,11 +77,11 @@ class FormController{
         })
     }
     #createElement(){
-        let result= {}
-        let valid= true
+        let result={}
+        let valid=true
         for(const inputField of this.#formFieldElemList){
             if(inputField.validate()){
-                result[inputField.name]= inputField.value
+                result[inputField.name]=inputField.value
             }
             else{
                 valid=false

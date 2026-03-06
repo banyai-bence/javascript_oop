@@ -1,0 +1,22 @@
+const formFields = [{
+    id: 'author',
+    label: 'Név',
+    name: 'author'
+},
+{
+    id: 'work',
+    label: 'Mű',
+    name: 'work'
+},
+{
+    id: 'concept',
+    label: 'Fogalom',
+    name: 'concept'
+}]
+
+const headerArray = ['Szerző', 'Mű', 'Fogalom']
+
+/**
+ * @typedef {{id: number, author?: string, work?: string, concept?: string}} AuthorType
+ * @typedef {{id: string, label: string, name: string}} FormFieldType
+ */

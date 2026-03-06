@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hidden{
+            display: none;
+        }
+        
+        #navbar {
+            display: flex;
+            gap: 0.5rem;
+            font-family: system-ui, sans-serif;
+            padding-bottom: 30px
+        }
+
+
+        #navbar input[type="radio"] {
+            display: none;
+        }
+
+
+        #navbar label {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            background: #f0f0f0;
+            color: #555;
+            border: 1px solid transparent;
+        }
+
+        #navbar label:hover {
+            background: #e5e5e5;
+        }
+
+
+        #navbar input[type="radio"]:checked + label {
+            background: #ffffff;
+            color: #000;
+            border-color: #0078d4;
+            font-weight: 600;
+        }
+
+        table, tr, td, th {
+            border: 1px solid black;
+            border-collapse: collapse;;
+        }
+    </style>
+</head>
+<body>
+    <script type="module" src="index.js"></script>
+</body>
+</html>

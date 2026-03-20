@@ -81,8 +81,9 @@ class AuthorManager {
             if (author.validate()) {
                 this.#authorList.push(author)
                 this.#importResultCallback("Sikeres volt.")
-            }else{
+            } else {
                 this.#importResultCallback("Sikertelen muvelet")
+                break;
             }
         }
     }
@@ -93,6 +94,16 @@ class AuthorManager {
      */
     getAllElement() {
         this.#tableCallback(this.#authorList);
+    }
+    /**
+     * @returns {string}
+     */
+    getExportString() {
+        const result = []
+        for (const author of this.#authorList) {
+            result.push(`${author.name};${author.work};${author.concept}`)
+        }
+        return result.join("\n");
     }
 
 }

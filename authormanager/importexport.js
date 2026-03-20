@@ -47,7 +47,20 @@ class ImportView extends ViewElement {
                 this.#manager.addElementList(result);
             }
         })
+        const exportButton = document.createElement("button")
+        exportButton.innerText = "Export"
+        this.div.appendChild(exportButton)
+        exportButton.addEventListener("click", () => {
+            const a = document.createElement("a");
+            const fileContent = this.#manager.getExportString();
+            const file = new Blob([fileContent]);
+            const fileUrl = URL.createObjectURL(file);
+            a.href = fileUrl;
+            a.download = "export.csv";
+            a.click();
+            URL.revokeObjectURL(a.href);
+        })
     }
 }
 
-export {ImportView}
+export { ImportView }

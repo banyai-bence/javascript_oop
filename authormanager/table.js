@@ -3,11 +3,11 @@ import { AuthorManager } from "./manager.js";
 import { ViewElement } from "./viewElement.js";
 
 
-class TableView extends ViewElement {
+class TableView extends ViewElement { 
     /** @type {AuthorManager} */
-    #manager;
+    #manager; 
     /** @type {HTMLTableSectionElement} */
-    #tbody
+    #tbody; //privat tulajdonsag a tablazat torzsenek
 
     /**
      * 
@@ -16,19 +16,19 @@ class TableView extends ViewElement {
      * @param {AuthorManager} manager
      */
     constructor(id, headerArray, manager) {
-        super(id);
-        this.#manager = manager
-        const table = document.createElement("table")
-        this.div.appendChild(table)
-        const thead = createTableHeader(headerArray)
+        super(id); // szuloosztaly konstruktoranak meghivasa
+        this.#manager = manager // a manager erteke a bemeneti manager peldany
+        const table = document.createElement("table") // letrehozunk egy tablazatot
+        this.div.appendChild(table) // hozzacsatoljuk a tablazatot a divhez
+        const thead = createTableHeader(headerArray) 
         table.appendChild(thead);
         this.#tbody = document.createElement("tbody")
         table.appendChild(this.#tbody)
-        this.#manager.tableCallback = (authorList) => {
-            if (authorList.length == 0) {
-                const tr = document.createElement("tr")
+        this.#manager.tableCallback = (authorList) => {  // definialjuk a manager tablecallback jet a setter meghivasaval lasd: authormanager.tablecallback
+            if (authorList.length == 0) { // ha a lista ures 
+                const tr = document.createElement("tr")// letrehozunk egy sor elemet
                 this.#tbody.appendChild(tr)
-                const td = createTableCell(tr, "Nincs megjelenitendo sor")
+                const td = createTableCell(tr, "Nincs megjelenitendo sor") 
                 td.colSpan = 3
             }
             for (const author of authorList) {
@@ -42,10 +42,10 @@ class TableView extends ViewElement {
 
         }
         this.activateCallback = () => {
-            this.#tbody.innerHTML = ""
-            this.#manager.getAllElement()
+            this.#tbody.innerHTML = "" // toroljuk a tbody tartalmat
+            this.#manager.getAllElement() // meghibjuk a manager getallelementjet (ami meghivja a tablecallbackjet lasd authormanager.getallelement)
         }
     }
 }
 
-export { TableView }
+export { TableView } // exportaljuk a table-t

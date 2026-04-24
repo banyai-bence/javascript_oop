@@ -12,38 +12,38 @@
  * @param {string} message
  * @returns {void}
  */
-class AuthorManager {
+class AuthorManager { // definialjuk az authormanager osztalyt
     /** @type {Author[]} */
-    #authorList;
+    #authorList; // definialjuk egy privat authorlist tulajdonsagot
 
     /** @type {TableCallback}  */
-    #tableCallback;
+    #tableCallback; // definialjuk egy privat tulajdonsagot
 
 
     /**
      * @type {addElementResultCallback}
      */
-    #addElementResultCallback;
+    #addElementResultCallback; // definialjuk egy privat tulajdonsagot
     /**@type {ImportResultCallback} */
-    #importResultCallback;
+    #importResultCallback; // definialjuk egy privat tulajdonsagot
     /**
      * @param {TableCallback} value
      */
-    set tableCallback(value) {
-        this.#tableCallback = value
+    set tableCallback(value) { // definialunk egy settert 
+        this.#tableCallback = value // erteket adunk a privat tulajdonsagnak
     }
 
     /**
      * @param {AddElementResultCallback} value
      */
-    set addElementResultCallback(value) {
-        this.#addElementResultCallback = value
+    set addElementResultCallback(value) { // definialunk egy settert 
+        this.#addElementResultCallback = value // erteket adunk a privat tulajdonsagnak
     }
     /**
      * @param {ImportResultCallback} value
      */
-    set importResultCallback(value) {
-        this.#importResultCallback = value
+    set importResultCallback(value) { // definialunk egy settert 
+        this.#importResultCallback = value // erteket adunk a privat tulajdonsagnak
     }
 
     constructor() {
@@ -108,46 +108,46 @@ class AuthorManager {
 
 }
 
-class Author {
+class Author { // definialunk egy author entitas osztalyt
     /**@type {string} */
-    #id;
+    #id; // definialunk egy id privat tulajdonsagot
     /**@type {string} */
-    #name;
+    #name;// definialunk egy name privat tulajdonsagot
     /**@type {string} */
-    #work;
+    #work; // definialunk egy work privat tulajdonsagot
     /**@type {string} */
-    #concept;
+    #concept; // definialunk egy concept privat tulajdonsagot
 
-    get id() {
-        return this.#id
+    get id() { // definialunk gettert az azonositonak 
+        return this.#id // visszaterunk a privat tulajdonsaggal
     }
-    get name() {
-        return this.#name
+    get name() { // definialunk gettert a namenek
+        return this.#name // visszaterunk a privat tulajdonsaggal
     }
-    get work() {
-        return this.#work
+    get work() { // definialunk gettert a namenek
+        return this.#work // visszaterunk a privat tulajdonsaggal
     }
-    get concept() {
-        return this.#concept
+    get concept() { // definialunk gettert a namenek
+        return this.#concept // visszaterunk a privat tulajdonsaggal
     }
 
-    set id(value) {
-        this.#id = value
+    set id(value) { // definialunk settert az azonositonak
+        this.#id = value // beallitjuk 
     }
-    set name(value) {
-        this.#name = value
+    set name(value) { // definialunk settert az azonositonak
+        this.#name = value // beallitjuk 
     }
-    set work(value) {
-        this.#work = value
+    set work(value) { // definialunk settert az azonositonak
+        this.#work = value // beallitjuk 
     }
-    set concept(value) {
-        this.#concept = value
+    set concept(value) { // definialunk settert az azonositonak
+        this.#concept = value // beallitjuk 
     }
     /**
      * @returns {boolean}
      */
-    validate() {
-        return this.#name && this.#concept && this.#work
+    validate() { // definialunk egy validate fuggvenyt a peldanynak 
+        return this.#name && this.#concept && this.#work // ha mindennek heyes erteke van akkor igazzal ter vissza, egyebkent hamis
     }
 }
 

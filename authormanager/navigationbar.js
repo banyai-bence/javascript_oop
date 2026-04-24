@@ -3,14 +3,14 @@ import { createRadioButton } from "./gomszab.min.js";
 
 class NavigationBar extends ViewElement{
     /**@type {ViewElement[]} */
-    #viewElementList;
+    #viewElementList; // privat tulajdonsag ami tartalmazza a megjelenitendo viewelement leszarmazottakat
 
     constructor(){
-        super("navbar");
+        super("navbar"); // meghivjuk a szuloosztaly konstruktorat
         this.#viewElementList=[];
-        this.div.addEventListener("change", (e)=>{
-            const radioButtonValue = e.target.value
-            this.activate(radioButtonValue);
+        this.div.addEventListener("change", (e)=>{ // feliratkozunk a div change esemenyere ( mivel a div radiogombokat fog tartalmazni ezert tudjuk figyelni a divnel hogy melyik radiogomb lesz kijelolve)
+            const radioButtonValue = e.target.value // elkerjuk a target value erteket
+            this.activate(radioButtonValue); // meghivjuk az activate fuggvenyt a kivalasztott radiogomb ertekevel (a viewelement azonositoi lehetnek lasd: addviewelement)
         })
     }
 
@@ -29,11 +29,11 @@ class NavigationBar extends ViewElement{
      * @override
      * @param {string} value 
      */
-    activate(value){
+    activate(value){ // a szuloosztaly definial egy activate fuggvenyt lasd: viewelement.activate , de a navigacios bar mas logikat kell tartalmazzon
         for(const viewElement of this.#viewElementList){
-            viewElement.activate(value)         
+            viewElement.activate(value)       // meghivjuk az activate fuggvenyet minden viewelementnek  
         }
-        this.div.querySelector(`#${value}`).checked = true;
+        this.div.querySelector(`#${value}`).checked = true; // a diven belul lekerjuk a bemeneti parameterrel megegyezo id-ju element es kijeloltre allittjuk
     }
 }
 
